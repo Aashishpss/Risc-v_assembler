@@ -258,10 +258,11 @@ void processAssemblyFile(const string& inputFile, const string& outputFile) {
 
     while (getline(asm_file, line)) {
         line = trim(line);
+        cout<<line<<endl;
         if (line.empty() || line[0] == '#') continue;
 
-        if (line == ".text") { inTextSegment = true; inDataSegment = false; continue; }
-        if (line == ".data") { inDataSegment = true; inTextSegment = false; continue; }
+        if (line == ".text") { inTextSegment = true; inDataSegment = false;}
+        else if (line == ".data") { inDataSegment = true; inTextSegment = false; }
 
         if (inDataSegment) processDataLine(line, mc_file);
         else if(inTextSegment){ 
@@ -270,8 +271,11 @@ void processAssemblyFile(const string& inputFile, const string& outputFile) {
     vector<string> instructions;
     int address = 0x0;
    //cout<<"here"<<endl;
+   // asm_file.seekg(0, ios::beg);
     // **First Pass: Store label locations**
     while (getline(asm_file, line)) {
+        cout<<"oh"<<endl;
+        cout<<line<<endl;
         istringstream iss(line);
         vector<string> tokens;
         string word;
