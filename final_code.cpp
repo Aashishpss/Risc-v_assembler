@@ -30,7 +30,7 @@ unordered_map<string, string> format_type = {
     // I-type instructions
     {"addi", "I"}, {"andi", "I"}, {"ori", "I"}, {"xori", "I"}, 
     {"slli", "I"}, {"srli", "I"}, {"srai", "I"}, {"slti", "I"}, {"sltiu", "I"}, 
-    {"lw", "I"}, {"lb", "I"}, {"lh", "I"}, {"jalr", "I"},{"subi","I"},
+    {"lw", "I"}, {"lb", "I"}, {"lh", "I"}, {"jalr", "I"},{"subi","I"},{ "ld", "I"},
 
     // S-type (store instructions)
     {"sw", "S"}, {"sb", "S"}, {"sh", "S"},{"sd", "S"},//sd should give error
@@ -53,7 +53,7 @@ unordered_map<string, string> opcode_map = {
     {"srl", "0110011"}, {"mul", "0110011"}, {"div", "0110011"}, {"rem", "0110011"},
     {"addi", "0010011"}, {"andi", "0010011"}, {"ori", "0010011"}, {"lw", "0000011"},
     {"sw", "0100011"}, {"beq", "1100011"}, {"bne", "1100011"}, {"jal", "1101111"},{"sh", "0100011"}, {"lui", "0110111"}, {"auipc", "0010111"},{"sb", "0100011"},{"jalr", "1100111"},
-    {"bge","1100011"},{"blt","1100011"},{"lb","0000011"},{"lh","0000011"}
+    {"bge","1100011"},{"blt","1100011"},{"lb","0000011"},{"lh","0000011"},{"ld","0000011"},{"sd","0100011"}
 };
 
 unordered_map<string, string> funct3_map = {
@@ -61,7 +61,8 @@ unordered_map<string, string> funct3_map = {
     {"xor", "100"}, {"sll", "001"}, {"slt", "010"}, {"sra", "101"},
     {"srl", "101"}, {"mul", "000"}, {"div", "100"}, {"rem", "110"},
     {"addi", "000"}, {"andi", "111"}, {"ori", "110"}, {"lw", "010"},{"lb","000"},{"lh","001"},
-    {"sw", "010"}, {"beq", "000"}, {"bne", "001"}, {"jal", "NULL"}, {"sh","001"},{"lui","NULL"},{"auipc", "NULL"}, {"sb","000"},{"jalr", "000"},{"bge","101"},{"blt","100"}
+    {"sw", "010"}, {"beq", "000"}, {"bne", "001"}, {"jal", "NULL"}, {"sh","001"},{"lui","NULL"},{"auipc", "NULL"}, {"sb","000"},{"jalr", "000"},{"bge","101"},{"blt","100"},
+    {"ld","011"},{"sd","011"}
     
 };
 
@@ -135,7 +136,7 @@ string convert_to_machine_code(vector<string> tokens,int current_pc) {
         return funct7+rs2+rs1+funct3+rd+opcode;
     }
     else if (type == "I") {  // I-format
-        if (tokens[0] == "lw" || tokens[0] == "lh" || tokens[0] == "ld" || tokens[0] == "lb"){
+        if (tokens[0] == "lw" || tokens[0] == "lh" || tokens[0] == "ld" || tokens[0] == "lb" ){
         rd = register_map[tokens[1]];
         rs1 = register_map[tokens[3]];
         imm = bitset<12>(stoi(tokens[2])).to_string();
@@ -452,6 +453,7 @@ void processAssemblyFile(const string& inputFile, const string& outputFile) {
         string func3 = funct3_map[tokens[0]];
         string func7 = funct7_map[tokens[0]];
         string type = format_type[tokens[0]];
+        cout<<type<<endl;
         string rd, rs1, rs2, imm;
 
         if (type == "R") {  // R-format
