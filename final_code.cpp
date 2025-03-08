@@ -177,7 +177,7 @@ string convert_to_machine_code(vector<string> tokens,int current_pc) {
     else if (type == "U") {
         rd = register_map[tokens[1]];  
         int imm_value = stoi(tokens[2]);  
-        cout<<imm_value<<"oh"<<endl;
+        
        
         cout<<imm_value<<endl;
         imm_value = imm_value << 12;
@@ -522,7 +522,7 @@ void processAssemblyFile(const string& inputFile, const string& outputFile) {
 
         }
     }
-    mc_file<< "0x"<<" "<<Done_Assembling<<endl;
+   mc_file<<"0x"<<" "<<"Done_assembling"<<endl;
     asm_file.close();
     mc_file.close();
 }
@@ -531,6 +531,6 @@ int main() {
     init_register_map();
     processAssemblyFile("input.asm", "output.mc");
     
-
+    
     return 0;
 }
