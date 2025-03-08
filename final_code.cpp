@@ -313,7 +313,7 @@ void processAssemblyFile(const string& inputFile, const string& outputFile) {
         if (tokens[0].back() == ':') {
             
             tokens.erase(tokens.begin());
-           // if (tokens.empty()) continue;
+            if (tokens.empty()) continue;
 
         }
 
@@ -443,7 +443,7 @@ void processAssemblyFile(const string& inputFile, const string& outputFile) {
         if (tokens[0].back() == ':') {
             
             tokens.erase(tokens.begin());
-            //if (tokens.empty()) continue;
+            if (tokens.empty()) continue;
 
         }
 
