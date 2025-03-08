@@ -9,8 +9,6 @@ This project is an **Assembly to Machine Code Converter** that takes an assembly
 |-- final_code.cpp        # Main program file
 |-- intermediate1.cpp     # Intermediate processing file
 |-- intermediate2.cpp     # Another intermediate processing file
-|-- input.asm            # Sample input assembly file
-|-- output.mc            # Generated machine code output
 |-- README.md            # Project documentation
 ```
 
@@ -61,8 +59,7 @@ g++ -o assembler final_code.cpp
 - **Intermediate files (`intermediate1.cpp`, `intermediate2.cpp`, etc.)** are used only for internal processing and should not be run separately.
 - **Make sure to download `final_code.cpp` and follow the instructions above to execute it properly.**
 
-## Contributing
-If you’d like to contribute, feel free to fork the repository and submit a pull request.
+
 
 ## License
 This project is licensed under the MIT License.
