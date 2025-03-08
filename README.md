@@ -7,8 +7,10 @@ This project is an **Assembly to Machine Code Converter** that takes an assembly
 ## Project Structure
 ```
 |-- final_code.cpp        # Main program file
-|-- intermediate1.cpp     # Intermediate processing file
-|-- intermediate2.cpp     # Another intermediate processing file
+|-- prefinal_code.cpp     # Intermediate processing file
+|-- prefinal_with_binary_mc.cpp     # Another intermediate processing file
+|-- merged_without_water.cpp   #Intermediate progress file
+|-- conv_label.cpp            # Intermediate progress file
 |-- input.asm            # Sample input assembly file
 |-- output.mc            # Generated machine code output
 |-- README.md            # Project documentation
@@ -63,6 +65,5 @@ g++ -o assembler final_code.cpp
 
 
 
-## License
-This project is licensed under the MIT License.
+
 
