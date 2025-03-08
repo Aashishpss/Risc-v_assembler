@@ -522,6 +522,7 @@ void processAssemblyFile(const string& inputFile, const string& outputFile) {
 
         }
     }
+    mc_file<< "0x"<<" "<<Done_Assembling<<endl;
     asm_file.close();
     mc_file.close();
 }
@@ -529,5 +530,7 @@ void processAssemblyFile(const string& inputFile, const string& outputFile) {
 int main() {
     init_register_map();
     processAssemblyFile("input.asm", "output.mc");
+    
+
     return 0;
 }
