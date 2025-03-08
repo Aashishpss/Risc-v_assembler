@@ -9,6 +9,8 @@ This project is an **Assembly to Machine Code Converter** that takes an assembly
 |-- final_code.cpp        # Main program file
 |-- intermediate1.cpp     # Intermediate processing file
 |-- intermediate2.cpp     # Another intermediate processing file
+|-- input.asm            # Sample input assembly file
+|-- output.mc            # Generated machine code output
 |-- README.md            # Project documentation
 ```
 
