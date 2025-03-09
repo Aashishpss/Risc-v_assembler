@@ -67,9 +67,35 @@ g++ -o assembler final_code.cpp
      label1: sll x12 x3 5
      lui x3 offset
   ```
-  
 
+## Supported Instructions
+This assembler supports a variety of RISC-V assembly instructions, including but not limited to:
 
+### R-Type Instructions:
+- `add`, `sub`, `sll`, `slt`, `sra`, `srl`, `xor`, `or`, `and`, `mul`, `div`, `rem`
 
+### I-Type Instructions:
+- `addi`, `andi`, `ori`, `lb`, `ld`, `lh`, `lw`, `jalr`
 
+### S-Type Instructions:
+- `sb`, `sw`, `sd`, `sh`
 
+### SB-Type Instructions:
+- `beq`, `bne`, `bge`, `blt`
+
+### U-Type Instructions:
+- `auipc`, `lui`
+
+### UJ-Type Instructions:
+- `jal`
+
+### Supported Assembler Directives:
+- `.text`, `.data`, `.byte`, `.half`, `.word`, `.dword`, `.asciz`
+
+Ensure that instructions are space-separated (not comma-separated) and that labels are on the same line as the instruction. Example:
+```assembly
+label1: sll x12 x3 5
+lui x3, offset
+```
+
+This ensures proper parsing and conversion to machine code.
