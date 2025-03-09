@@ -42,9 +42,9 @@ g++ -o assembler final_code.cpp
    - Create a new file `input.asm` and write your assembly instructions.
    - Example `input.asm`:
      ```assembly
-     MOV R1, #5
-     ADD R2, R1, #3
-     SUB R3, R2, #2
+     addi x1 x2 4
+     add x3 x4 x5
+     auipc x4 offset
      ```
 
 2. **Run the assembler:**
@@ -62,6 +62,12 @@ g++ -o assembler final_code.cpp
 ## Notes
 - **Intermediate files (`intermediate1.cpp`, `intermediate2.cpp`, etc.)** are used only for internal processing and should not be run separately.
 - **Make sure to download `final_code.cpp` and follow the instructions above to execute it properly.**
+- **In input the instruction should be space separated not comma separated and label instruction should be in the same line ex:**
+  ```ex:
+     label1: sll x12 x3 5
+     lui x3 offset
+  ```
+  
 
 
 
